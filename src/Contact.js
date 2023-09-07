@@ -6,7 +6,7 @@ return (
     <div className="w-2/3">
       <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
         <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center">Contacto</h2>
-        <form action="https://formsubmit.co/m.a.chamorro.o@gmail.com" method="POST" className="space-y-8">
+        <form action="https://formsubmit.co/115da6b77442ce173004923dad844dd4" method="POST" className="space-y-8">
           <div>
             <label htmlFor="email" className="block mb-2 text-sm font-medium">Su e-mail</label>
             <input
