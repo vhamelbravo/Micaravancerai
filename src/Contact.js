@@ -56,7 +56,7 @@ return (
           &lt;a href="https://www.maps.ie/population/"&gt;Find Population on Map&lt;7a&gt;
         </iframe>
       </div>
-     <div className="flex items-end translate-y-[-100%] -mx-12 space-x-4 ">
+     <div className="flex items-end translate-y-[-100%] -mx-12 max-sm:scale-[60%] max-sm:-mx-[360%] max-[780px]:-mx-[180%] max-lg:-mx-[150%] max-xl:-mx-[100%] max-[1450px]:-mx-[60%]  space-x-4 ">
         <div className="btn join-item">
 		<i className="fi fi-brands-whatsapp"> </i>
 		<p> <a href="https://wa.me/56997843280"> +56 9 9748 3280 </a> </p>

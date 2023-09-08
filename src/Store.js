@@ -16,7 +16,7 @@ return (
 	<div className="carousel w-full">
       <div id="slide1" className="carousel-item relative w-full">
         <div className="flex justify-between w-full">
-          <div className="card w-1/3 bg-base-100 shadow-xl mx-1">
+          <div className="card w-1/3 max-sm:w-1/2 bg-base-100 shadow-xl mx-1">
 <figure><img className="h-[80rem] w-[40rem]" src={product1} alt="Product 1" /></figure>
       <div className="card-body">
         <h2 className="card-title">Billeteras </h2>
@@ -27,7 +27,7 @@ return (
       </div>
 
           </div>
-          <div className="card w-1/3 bg-base-100 shadow-xl mx-1">
+          <div className="card w-1/3 max-sm:w-1/2 bg-base-100 shadow-xl mx-1">
 <figure><img className="h-[80rem] w-[40rem]" src={product2} alt="Product 1" /></figure>
       <div className="card-body">
         <h2 className="card-title">Maletín </h2>
@@ -41,7 +41,7 @@ Stock color negro.
       </div>
 
           </div>
-          <div className="card w-1/3 bg-base-100 shadow-xl mx-1">
+          <div className="card w-1/3 max-sm:w-1/2 bg-base-100 shadow-xl mx-1">
 <figure><img  className="h-[80rem] w-[40rem]"  src={product3} alt="Product 1" /></figure>
       <div className="card-body">
         <h2 className="card-title">Bandoleras </h2>
@@ -62,7 +62,7 @@ Origen: origen  Turco. </p>
       </div>
       <div id="slide2" className="carousel-item relative w-full">
         <div className="flex justify-between w-full">
-          <div className="card w-1/3 bg-base-100 shadow-xl mx-1">
+          <div className="card w-1/3 max-sm:w-1/2 bg-base-100 shadow-xl mx-1">
 <figure><img  className="h-[80rem] w-[40rem]"  src={product4} alt="Product 1" /></figure>
       <div className="card-body">
         <h2 className="card-title">Billeteras </h2>
@@ -73,7 +73,7 @@ Origen: origen  Turco. </p>
       </div>
 
           </div>
-          <div className="card w-1/3 bg-base-100 shadow-xl mx-1">
+          <div className="card w-1/3 max-sm:w-1/2 bg-base-100 shadow-xl mx-1">
 <figure><img  className="h-[80rem] w-[40rem]"  src={product5} alt="Product 1" /></figure>
       <div className="card-body">
         <h2 className="card-title">Mochilas </h2>
@@ -87,7 +87,7 @@ Consulta su valor por WS
       </div>
 
           </div>
-          <div className="card w-1/3 bg-base-100 shadow-xl mx-1">
+          <div className="card w-1/3 max-sm:w-1/2  bg-base-100 shadow-xl mx-1">
 <figure><img  className="h-[80rem] w-[40rem]"  src={product6} alt="Product 1" /></figure>
       <div className="card-body">
         <h2 className="card-title">Minibag </h2>
@@ -107,7 +107,7 @@ Consulta valores por WS . </p>
       </div>
       <div id="slide3" className="carousel-item relative w-full">
         <div className="flex justify-between w-full">
-          <div className="card w-1/3 bg-base-100 shadow-xl mx-1">
+          <div className="card w-1/3 max-sm:w-1/2  bg-base-100 shadow-xl mx-1">
 <figure><img  className="h-[80rem] w-[40rem]"  src={product7} alt="Product 1" /></figure>
       <div className="card-body">
         <h2 className="card-title">Billeteras de cuero</h2>
@@ -119,7 +119,7 @@ Consulta valores por WS . </p>
       </div>
 
           </div>
-          <div className="card w-1/3 bg-base-100 shadow-xl mx-1">
+          <div className="card w-1/3 max-sm:w-1/2 bg-base-100 shadow-xl mx-1">
 <figure><img  className="h-[80rem] w-[40rem]"  src={product8} alt="Product 1" /></figure>
       <div className="card-body">
         <h2 className="card-title">Bufandas y Pashminas</h2>
@@ -132,7 +132,7 @@ Consulta valores por WS . </p>
       </div>
 
           </div>
-          <div className="card w-1/3 bg-base-100 shadow-xl mx-1">
+          <div className="card w-1/3 max-sm:w-1/2 bg-base-100 shadow-xl mx-1">
 <figure><img  className="h-[80rem] w-[40rem]"  src={product3} alt="Product 1" /></figure>
       <div className="card-body">
         <h2 className="card-title">Bandoleras de cuero</h2>
@@ -153,7 +153,7 @@ Origen: origen  Turco. </p>
       </div>
       <div id="slide4" className="carousel-item relative w-full">
         <div className="flex justify-between w-full">
-          <div className="card w-1/3 bg-base-100 shadow-xl mx-1">
+          <div className="card w-1/3 max-sm:w-1/2 bg-base-100 shadow-xl mx-1">
 <figure><img  className="h-[80rem] w-[40rem]"  src={product1} alt="Product 1" /></figure>
       <div className="card-body">
         <h2 className="card-title">Billeteras de cuero</h2>
@@ -164,7 +164,7 @@ Origen: origen  Turco. </p>
       </div>
 
           </div>
-          <div className="card w-1/3 bg-base-100 shadow-xl mx-1">
+          <div className="card w-1/3 max-sm:w-1/2 bg-base-100 shadow-xl mx-1">
 <figure><img  className="h-[80rem] w-[40rem]"  src={product2} alt="Product 1" /></figure>
       <div className="card-body">
         <h2 className="card-title">Maletín de cuero</h2>
@@ -178,7 +178,7 @@ Consulta valor por WS. </p>
       </div>
 
           </div>
-          <div className="card w-1/3 bg-base-100 shadow-xl mx-1">
+          <div className="card w-1/3 max-sm:w-1/2 bg-base-100 shadow-xl mx-1">
 <figure><img  className="h-[80rem] w-[40rem]"  src={product3} alt="Product 1" /></figure>
       <div className="card-body">
         <h2 className="card-title">Bandoleras de cuero</h2>

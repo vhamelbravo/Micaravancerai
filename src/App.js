@@ -8,7 +8,7 @@ import Contact from './Contact.js'
 function App() {
   return (
     <div className="App">
-	  <div className="h-screen w-screen bg-orange-100">
+	  <div className="overflow-x-hidden h-screen w-screen bg-orange-100">
 	  <Header />
 	  <Hero />
 	  <About />
