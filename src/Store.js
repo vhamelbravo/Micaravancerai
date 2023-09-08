@@ -20,7 +20,7 @@ return (
 <figure><img className="h-[80rem] w-[40rem]" src={product1} alt="Product 1" /></figure>
       <div className="card-body">
         <h2 className="card-title">Billeteras </h2>
-        <p>Finas billeteras de cuero con múltiples compartimentos interiores, delicadas terminaciones y costuras, finos cierres y bolsillos para tarjetas y documentos. Hermosos colores y modelos.</p>
+        <p>Finas billeteras de cuero con múltiples compartimientos interiores, delicadas terminaciones y costuras, finos cierres y bolsillos para tarjetas y documentos. Hermosos colores y modelos. Consultar valor por WS</p>
         <div className="card-actions justify-end">
           <button className="btn btn-primary">Ver Modelos</button>
         </div>
@@ -30,10 +30,11 @@ return (
           <div className="card w-1/3 max-sm:w-1/2 bg-base-100 shadow-xl mx-1">
 <figure><img className="h-[80rem] w-[40rem]" src={product2} alt="Product 1" /></figure>
       <div className="card-body">
-        <h2 className="card-title">Maletín </h2>
-        <p>Maletín único y exclusivo para viajes  de negocios. 
-Elaborado en fino y liviano cuero, múltiples compartimientos interiores exteriores, correa de hombro de excelencia y broches y cierres de alta calidad. 
-Stock color negro. 
+        <h2 className="card-title">Maletín de Negocios </h2>
+        <p>Modelo único y exclusivo para viajes  de negocios. 
+Elaborado en fino y liviano cuero, múltiples compartimientos interiores exteriores, correa de hombro de excelencia con broches y cierres de alta calidad. 
+Stock color negro.
+	Consultar valor por WS
  </p>
         <div className="card-actions justify-end">
           <button className="btn btn-primary">Ver Modelos</button>
