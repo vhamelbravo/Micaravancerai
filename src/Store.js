@@ -8,13 +8,27 @@ import product6 from './assets/product-6.jpg'
 import product7 from './assets/product-7.jpg'
 import product8 from './assets/product-8.jpg'
 import product9 from './assets/product-9.jpg'
+import {useEffect, useState} from 'react'
+import useContentful from './useContentful'
 function Store() {
+	const [products, setProducts] = useState([])
+	const {getAuthors, client} = useContentful()
+	useEffect(() => {
+    client
+      .getEntries({ content_type: 'productos' })
+      .then((response) => {
+        setProducts(response.items);
+      })
+      .catch(console.error);
+  }, []);
 return (
+	<>
+	{products.map((product, index) => (
 	<div id="tienda" className="bg-orange-100">
-	<h1 className="text-5xl font-bold"> Tienda Virtual </h1>
+	<h1 className="text-5xl font-bold"> {products.field.tex} </h1>
 	<p className="py-6"> Nuestra tienda virtual ofrece el servicio de accesoria presencial, visitas programadas con muestras de interés , showroom y asistencia a ferias de emprendedores.  </p> 
 	<div className="carousel w-full">
-      <div id="slide1" className="carousel-item relative w-full">
+      <div key={index} id="slide1" className="carousel-item relative w-full">
         <div className="flex justify-between w-full">
           <div className="card w-1/3 max-sm:w-1/2 bg-base-100 shadow-xl mx-1">
 <figure><img className="h-[80rem] w-[40rem]" src={product1} alt="Product 1" /></figure>
@@ -200,6 +214,8 @@ Origen: origen  Turco. </p>
       </div>
     </div>
 	</div>
+	))}
+	</>
 )
 }
 

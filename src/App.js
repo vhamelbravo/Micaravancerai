@@ -3,7 +3,11 @@ import Header from './Header.js'
 import Hero from './Hero.js'
 import About from './About.js'
 import Store from './Store.js'
+import Info from './Info.js'
 import Contact from './Contact.js'
+
+
+
 
 function App() {
   return (
@@ -13,6 +17,7 @@ function App() {
 	  <Hero />
 	  <About />
 	  <Store />
+	  <Info />
 	  <Contact />
 	  </div>
     </div>
