@@ -30,16 +30,16 @@ return (
 	{Array.from({ length: totalSlides }).map((_, slideIndex) => (
   <div id={`slide${slideIndex + 1}`} key={slideIndex} className="carousel-item relative w-full">
     <div className="flex justify-between w-full">
-      {Array.from({ length: 3 }).map((_, cardIndex) => {
+      {Array.from({ length: 2 }).map((_, cardIndex) => {
         const productIndex = slideIndex * 3 + cardIndex;
         const productData = products[productIndex];
 
         if (productData) { // Check if product data exists
           return (
-            <div className="card w-1/3 max-sm:w-full bg-base-100 shadow-xl mx-1" key={cardIndex}>
+            <div className="card w-1/2 max-sm:w-full bg-base-100 shadow-xl mx-1" key={cardIndex}>
               <figure>
                 <img
-                  className="h-[80rem] w-[40rem]"
+                  className="h-[1920px] w-[1080px]"
                   src={`https:${productData.fields.imagenes.fields.file.url}`}
                   alt={productData.fields.nombre}
                 />
@@ -69,7 +69,7 @@ return (
       <a
         href={`#slide${(slideIndex + 1) % totalSlides + 1}`} // Calculate the next slide index
         className="btn btn-circle"
-      >
+      >2
         ❯
       </a>
     </div>
