@@ -17,6 +17,8 @@ function Store() {
 	const { getProducts } = useContentful()
 	const totalSlides = Math.ceil(products.length / 3)
 
+	const isMobile = window.innerWidth <= 768;
+
 	useEffect(() => {
 	getProducts().then((response) => {
 		setProducts(response.items)
@@ -30,16 +32,16 @@ return (
 	{Array.from({ length: totalSlides }).map((_, slideIndex) => (
   <div id={`slide${slideIndex + 1}`} key={slideIndex} className="carousel-item relative w-full">
     <div className="flex justify-between w-full">
-      {Array.from({ length: 2 }).map((_, cardIndex) => {
-        const productIndex = slideIndex * 3 + cardIndex;
+      {Array.from({ length: isMobile ? 1 : 2 }).map((_, cardIndex) => {
+        const productIndex = slideIndex * 2 + cardIndex;
         const productData = products[productIndex];
 
-        if (productData) { // Check if product data exists
+        if (productData) {  
           return (
-            <div className="card w-1/2 max-sm:w-full bg-base-100 shadow-xl mx-1" key={cardIndex}>
+            <div className={`card w-${isMobile ? 'full' : '1/2'} max-sm:w-full bg-base-100 shadow-xl mx-1`} key={cardIndex}>
               <figure>
                 <img
-                  className="h-[1920px] w-[1080px]"
+                  className="h-[576px] w-[1024px]"
                   src={`https:${productData.fields.imagenes.fields.file.url}`}
                   alt={productData.fields.nombre}
                 />
@@ -54,7 +56,7 @@ return (
             </div>
           );
         } else {
-          // Return an empty div or placeholder if no product data is available
+           
           return <div key={cardIndex}></div>;
         }
       })}
@@ -69,7 +71,7 @@ return (
       <a
         href={`#slide${(slideIndex + 1) % totalSlides + 1}`} // Calculate the next slide index
         className="btn btn-circle"
-      >2
+      >
         ❯
       </a>
     </div>

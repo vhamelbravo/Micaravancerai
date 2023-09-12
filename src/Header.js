@@ -26,7 +26,7 @@ return (
         <li><a onClick={() => scrollToSection('contacto')} style={{ cursor: 'pointer' }}>Contacto </a></li>
       </ul>
     </div>
-    <a onClick={() => scrollToSection('inicio')} style={{ cursor: 'pointer' }}className="btn btn-ghost normal-case text-xl"> <img className="-mt-3  max-sm:-ml-20 " src={logo}/> </a>
+    <a onClick={() => scrollToSection('inicio')} style={{ cursor: 'pointer' }}className="btn btn-ghost normal-case text-xl"> <img className="-mt-3 scale-110  max-sm:-ml-20 " src={logo}/> </a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
