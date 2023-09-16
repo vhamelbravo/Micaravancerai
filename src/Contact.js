@@ -3,10 +3,10 @@ function Contact() {
 return (
 	<>
 	<div id="contacto" className="bg-orange-100 flex">
-    <div className="w-2/3">
+    <div className="w-2/3 ">
       <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
-        <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center">Contacto</h2>
-        <form action="https://formsubmit.co/115da6b77442ce173004923dad844dd4" method="POST" className="space-y-8">
+	 <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center">Contacto</h2> 
+	<form action="https://formsubmit.co/115da6b77442ce173004923dad844dd4" method="POST" className="space-y-8">
           <div>
             <label htmlFor="email" className="block mb-2 text-sm font-medium">Su e-mail</label>
             <input
@@ -42,9 +42,10 @@ return (
         </form>
       </div>
     </div>
+    
     <div className="w-1/3">
       <div className="justify-end py-28 mr-12">
-        <iframe
+	 <iframe
           width="100%"
           height={400}
           frameBorder={0}
@@ -54,21 +55,25 @@ return (
           src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Camino%20el%20Alba%208680,%20depto.%20201+(MICARAVANCERAI)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
         >
           &lt;a href="https://www.maps.ie/population/"&gt;Find Population on Map&lt;7a&gt;
-        </iframe>
+        </iframe> 
       </div>
-     <div className="flex items-end translate-y-[-100%] -mx-12 max-sm:scale-[60%] max-sm:-mx-[360%] max-[780px]:-mx-[180%] max-lg:-mx-[150%] max-xl:-mx-[100%] max-[1450px]:-mx-[60%]  space-x-4 ">
-        <div className="btn join-item">
-		<i className="fi fi-brands-whatsapp"> </i>
+     <div className="flex items-end translate-y-[-100%] -mx-12 max-sm:scale-[60%] max-sm:-mx-[295%] max-[780px]:-mx-[180%] max-lg:-mx-[150%] max-xl:-mx-[100%] max-[1450px]:-mx-[60%] max-sm:w-fit space-x-4 ">
+		 <div className="btn join-item ">
+	<i className="fi fi-brands-whatsapp"> </i>
 		<p> <a href="https://wa.me/56997843280"> +56 9 9748 3280 </a> </p>
 		</div>
-        <div className="btn join-item">
+		
+	<div className="btn join-item">
 		<i className="fi fi-brands-instagram"> </i>
 		<p> <a href="https://instagram.com/micaravancerai"> @micaravancerai </a> </p>
 		</div>
-        <div className="btn join-item">
+		
+		<div className="btn join-item">
 		<p> <a href="mailto:m.a.chamorro.o@gmail.com"> m.a.chamorro.o@gmail.com </a> </p>
 
 		</div>
+			
+		
       </div>
     </div>
   </div>
