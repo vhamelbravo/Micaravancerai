@@ -62,7 +62,7 @@ function Store() {
                         </h2>
                         <p className="min-[768px]:w-[890px]">
                           {documentToReactComponents(
-                            productData.fields.descripcion
+                            productData.fields.descripcion,
                           )}
                         </p>
                         <div className="card-actions justify-end">
@@ -107,11 +107,12 @@ function Store() {
                                         <button
                                           onClick={() => {
                                             setCurrentSlide(
-                                              (currentSlide - 1 +
+                                              (currentSlide -
+                                                1 +
                                                 productData.fields.modelos
                                                   .length) %
                                                 productData.fields.modelos
-                                                  .length
+                                                  .length,
                                             );
                                           }}
                                           className="btn btn-circle"
@@ -123,7 +124,7 @@ function Store() {
                                             setCurrentSlide(
                                               (currentSlide + 1) %
                                                 productData.fields.modelos
-                                                  .length
+                                                  .length,
                                             );
                                           }}
                                           className="btn btn-circle"
@@ -132,7 +133,7 @@ function Store() {
                                         </button>
                                       </div>
                                     </div>
-                                  )
+                                  ),
                                 )}
                               </div>
                               <div className="modal-action"></div>
@@ -162,8 +163,7 @@ function Store() {
               </button>
               <button
                 onClick={() => {
-                  const nextSlide =
-                    ((slideIndex + 1) % totalSlides) + 1;
+                  const nextSlide = ((slideIndex + 1) % totalSlides) + 1;
                   document.getElementById(`slide${nextSlide}`).scrollIntoView({
                     behavior: "smooth",
                   });

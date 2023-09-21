@@ -1,4 +1,4 @@
-import envelope from "./assets/envelope.png";
+import React from "react";
 function Contact() {
   return (
     <>

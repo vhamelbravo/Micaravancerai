@@ -1,3 +1,4 @@
+import React from "react";
 import "./App.css";
 import avatar from "./assets/banner.png";
 function About() {

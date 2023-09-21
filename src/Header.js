@@ -1,4 +1,5 @@
 import "./App.css";
+import React from "react";
 import logo from "./assets/logo-text.png";
 function Header() {
   const scrollToSection = (sectionId) => {

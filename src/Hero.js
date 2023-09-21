@@ -1,4 +1,5 @@
 import backgroundImage from "./assets/logo.jpg";
+import React from "react";
 
 function Hero() {
   const scrollToSection = (sectionId) => {
