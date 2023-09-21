@@ -75,8 +75,10 @@ function Contact() {
               marginWidth={0}
               src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Camino%20el%20Alba%208680,%20depto.%20201+(MICARAVANCERAI)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
             >
-              &lt;a href="https://www.maps.ie/population/"&gt;Find Population on
-              Map&lt;7a&gt;
+              <a href="https://www.maps.ie/population/">
+                {" "}
+                Find Population on Map{" "}
+              </a>
             </iframe>
           </div>
           <div className="flex items-end translate-y-[-100%] -mx-12 max-sm:scale-[60%] max-sm:-mx-[295%] max-[780px]:-mx-[180%] max-lg:-mx-[150%] max-xl:-mx-[100%] max-[1450px]:-mx-[60%] max-sm:w-fit space-x-4 ">
