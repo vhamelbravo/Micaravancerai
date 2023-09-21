@@ -2,16 +2,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css');
-@import url('https://fonts.googleapis.com/css2?family=Paprika&display=swap');
+@import url("https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css");
+@import url("https://fonts.googleapis.com/css2?family=Paprika&display=swap");
 body {
   margin: 0;
-  font-family: 'Paprika', cursive; 
+  font-family: "Paprika", cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }

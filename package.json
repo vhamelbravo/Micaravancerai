@@ -41,6 +41,10 @@
   },
   "devDependencies": {
     "daisyui": "^3.6.5",
+    "eslint": "^8.49.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-react": "^7.33.2",
+    "prettier": "3.0.3",
     "tailwindcss": "^3.3.3"
   }
 }
