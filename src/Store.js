@@ -7,10 +7,9 @@ function Store() {
   const [products, setProducts] = useState([]);
   const { getProducts } = useContentful();
   const isMobile = window.innerWidth <= 768;
-  const totalSlides = isMobile
-    ? Math.ceil(products.length / 1)
-    : Math.ceil(products.length / 2);
-  const [currentSlide, setCurrentSlide] = useState(0); // Track the current slide index
+  const productsPerPage = isMobile ? 1 : 2;
+  const totalSlides = Math.ceil(products.length / productsPerPage);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
     getProducts().then((response) => {
@@ -35,10 +34,8 @@ function Store() {
             className="carousel-item relative w-full"
           >
             <div className="flex justify-between w-full">
-              {Array.from({ length: isMobile ? 1 : 2 }).map((_, cardIndex) => {
-                const productIndex = isMobile
-                  ? slideIndex * 1 + cardIndex
-                  : slideIndex * 2 + cardIndex;
+              {Array.from({ length: productsPerPage }).map((_, cardIndex) => {
+                const productIndex = slideIndex * productsPerPage + cardIndex;
                 const productData = products[productIndex];
 
                 if (productData) {
@@ -76,7 +73,14 @@ function Store() {
                           >
                             Ver Modelos
                           </button>
-                          <button className="btn btn-primary">Comprar</button>
+                          <button
+                            onClick={() => {
+                              document.getElementById("buy-modal").showModal();
+                            }}
+                            className="btn btn-primary"
+                          >
+                            Comprar
+                          </button>
                           <dialog
                             id={`my_modal_${productIndex}`}
                             className="modal modal-middle"
@@ -87,55 +91,60 @@ function Store() {
                                   X
                                 </button>
                               </form>
-                              <div className="carousel w-full">
-                                {productData.fields.modelos.map(
-                                  (modelo, modeloIndex) => (
-                                    <div
-                                      id={`modal-slide${modeloIndex + 1}`}
-                                      className={`carousel-item relative w-full ${
-                                        modeloIndex === currentSlide
-                                          ? "block"
-                                          : "hidden"
-                                      }`} // Show or hide the slide based on currentSlide value
-                                      key={modeloIndex}
-                                    >
-                                      <img
-                                        src={`https:${modelo.fields.file.url}`}
-                                        className="h-[1024px] w-[576]"
-                                      />
-                                      <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                                        <button
-                                          onClick={() => {
-                                            setCurrentSlide(
-                                              (currentSlide -
-                                                1 +
-                                                productData.fields.modelos
-                                                  .length) %
-                                                productData.fields.modelos
-                                                  .length,
-                                            );
-                                          }}
-                                          className="btn btn-circle"
-                                        >
-                                          ❮
-                                        </button>
-                                        <button
-                                          onClick={() => {
-                                            setCurrentSlide(
-                                              (currentSlide + 1) %
-                                                productData.fields.modelos
-                                                  .length,
-                                            );
-                                          }}
-                                          className="btn btn-circle"
-                                        >
-                                          ❯
-                                        </button>
+                              {productData &&
+                              productData.fields.modelos?.length > 0 ? (
+                                <div className="carousel w-full">
+                                  {productData.fields.modelos.map(
+                                    (modelo, modeloIndex) => (
+                                      <div
+                                        id={`modal-slide${modeloIndex + 1}`}
+                                        className={`carousel-item relative w-full ${
+                                          modeloIndex === currentSlide
+                                            ? "block"
+                                            : "hidden"
+                                        }`} // Show or hide the slide based on currentSlide value
+                                        key={modeloIndex}
+                                      >
+                                        <img
+                                          src={`https:${modelo.fields.file.url}`}
+                                          className="h-[1024px] w-[576]"
+                                        />
+                                        <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                                          <button
+                                            onClick={() => {
+                                              setCurrentSlide(
+                                                (currentSlide -
+                                                  1 +
+                                                  productData.fields.modelos
+                                                    .length) %
+                                                  productData.fields.modelos
+                                                    .length,
+                                              );
+                                            }}
+                                            className="btn btn-circle"
+                                          >
+                                            ❮
+                                          </button>
+                                          <button
+                                            onClick={() => {
+                                              setCurrentSlide(
+                                                (currentSlide + 1) %
+                                                  productData.fields.modelos
+                                                    .length,
+                                              );
+                                            }}
+                                            className="btn btn-circle"
+                                          >
+                                            ❯
+                                          </button>
+                                        </div>
                                       </div>
-                                    </div>
-                                  ),
-                                )}
-                              </div>
+                                    ),
+                                  )}
+                                </div>
+                              ) : (
+                                <p> No hay más modelos disponibles </p>
+                              )}
                               <div className="modal-action"></div>
                             </div>
                           </dialog>
@@ -173,6 +182,20 @@ function Store() {
                 ❯
               </button>
             </div>
+            <dialog id="buy-modal" className="modal modal-center ">
+              <div className="modal-box max-md:h-10">
+                <form method="dialog">
+                  <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+                    ✕
+                  </button>
+                </form>
+                <h3 className="font-bold text-lg">
+                  Producto agregado a carrito
+                </h3>
+                <br />
+                <button className="btn"> Ver Carrito </button>
+              </div>
+            </dialog>
           </div>
         ))}
       </div>
