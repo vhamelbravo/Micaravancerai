@@ -2,8 +2,9 @@ import "./App.css";
 import React, { useState } from "react";
 import logo from "./assets/logo-text.png";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import PropTypes from "prop-types";
 
-function Header() {
+function Header({ selectedProducts, setSelectedProducts }) {
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
 
@@ -18,6 +19,23 @@ function Header() {
   const toggleMenu = () => {
     setIsMenuVisible(!isMenuVisible);
   };
+  const removeFromCart = (indexToRemove) => {
+    const updatedCart = [...selectedProducts];
+    updatedCart.splice(indexToRemove, 1);
+    setSelectedProducts(updatedCart);
+  };
+  function calculateTotalPrice(selectedProducts) {
+    const totalPrice = selectedProducts.reduce((total, product) => {
+      const productPrice = parseFloat(
+        product.fields.precio.replace(/\./g, "").replace(","),
+      );
+
+      return total + productPrice;
+    }, 0);
+    return totalPrice;
+  }
+  const total = calculateTotalPrice(selectedProducts);
+  const formattedTotal = total.toLocaleString("es-ES");
   return (
     <div>
       <div className="navbar bg-red-900 fixed z-[99]">
@@ -72,34 +90,47 @@ function Header() {
               </li>
               <li>
                 {" "}
-                <button onClick={toggleMenu}>
+                <button id="menu-button-mobile" onClick={toggleMenu}>
                   {" "}
-                  Carrito <ShoppingCartIcon />{" "}
+                  Carrito <ShoppingCartIcon /> {selectedProducts.length}{" "}
                 </button>{" "}
               </li>
               {isMenuVisible && (
                 <div className="fixed bottom-4 left-4 w-full h-full flex items-start justify-end">
                   <button
                     onClick={toggleMenu}
-                    className="btn btn-sm btn-circle btn-ghost absolute right-[23rem] top-8"
+                    className="btn btn-sm btn-circle btn-ghost absolute right-8 top-8"
                   >
                     ✕
                   </button>
-                  <div className="menu bg-base-200 w-96 h-auto rounded-box m-5 right-0 ">
-                    <ul>
-                      <div className="hero-content flex-col lg:flex-row ">
-                        <img
-                          src="https://daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
-                          className="h-[142px] w-20 max-w-sm rounded-lg shadow-2xl my-8"
-                        />
-                        <div className="mt-8">
-                          <h1 className="text-3xl font-bold">Producto 1 </h1>
-                          <p className="py-6">Precio: </p>
+                  <div className="menu max-w-screen-sm max-h-[100vh] bg-base-200 w-96 h-auto rounded-box m-5 right-0 ">
+                    {selectedProducts.map((product, index) => (
+                      <ul key={index}>
+                        <div className="hero-content flex-col lg:flex-row ">
+                          <div className="mt-8">
+                            <h1 className="text-3xl font-bold">
+                              {" "}
+                              {product.fields.nombre}{" "}
+                            </h1>
+                            <p className="py-6">
+                              Precio: $ {product.fields.precio}{" "}
+                            </p>
+                            <button
+                              onClick={removeFromCart}
+                              className="btn bg-red-900"
+                            >
+                              {" "}
+                              Eliminar{" "}
+                            </button>
+                          </div>
                         </div>
-                      </div>
-                    </ul>
+                      </ul>
+                    ))}
                     <div className="mt-auto">
-                      <p className="text-2xl pb-4 text-left "> Total: </p>
+                      <p className="text-2xl pb-4 text-left ">
+                        {" "}
+                        Total: $ {formattedTotal}{" "}
+                      </p>
                       <button className="btn btn-primary">Comprar </button>
                     </div>
                   </div>
@@ -145,9 +176,9 @@ function Header() {
             </li>
             <li>
               {" "}
-              <button onClick={toggleMenu}>
+              <button id="menu-button" onClick={toggleMenu}>
                 {" "}
-                <ShoppingCartIcon />{" "}
+                <ShoppingCartIcon /> {selectedProducts.length}{" "}
               </button>{" "}
             </li>
             {isMenuVisible && (
@@ -159,20 +190,37 @@ function Header() {
                   ✕
                 </button>
                 <div className="menu bg-base-200 w-96 h-screen rounded-box m-5 right-0 ">
-                  <ul>
-                    <div  className="hero-content flex-col lg:flex-row ">
-                      <img
-                        src=""
-                        className="h-[142px] w-20 max-w-sm rounded-lg shadow-2xl my-8"
-                      />
-                      <div className="mt-8">
-                        <h1 className="text-3xl font-bold">Producto 1 </h1>
-                        <p className="py-6">Precio: </p>
+                  {selectedProducts.map((product, index) => (
+                    <ul key={index}>
+                      <div className="hero-content flex-col lg:flex-row ">
+                        <img
+                          src={`https:${product.fields.imagenes.fields.file.url}`}
+                          className="h-[142px] w-20 max-w-sm rounded-lg shadow-2xl my-8"
+                        />
+                        <div className="mt-8">
+                          <h1 className="text-3xl font-bold">
+                            {" "}
+                            {product.fields.nombre}{" "}
+                          </h1>
+                          <p className="py-6">
+                            Precio: $ {product.fields.precio}
+                          </p>
+                          <button
+                            onClick={removeFromCart}
+                            className="btn bg-red-900"
+                          >
+                            {" "}
+                            Eliminar{" "}
+                          </button>
+                        </div>
                       </div>
-                    </div>
-                  </ul>
+                    </ul>
+                  ))}
                   <div className="mt-auto">
-                    <p className="text-2xl pb-4 text-left "> Total: </p>
+                    <p className="text-2xl pb-4 text-left ">
+                      {" "}
+                      Total: $ {formattedTotal}{" "}
+                    </p>
                     <button className="btn btn-primary">Comprar </button>
                   </div>
                 </div>
@@ -184,5 +232,9 @@ function Header() {
     </div>
   );
 }
+Header.propTypes = {
+  selectedProducts: PropTypes.array.isRequired,
+  setSelectedProducts: PropTypes.func.isRequired,
+};
 
 export default Header;

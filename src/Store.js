@@ -2,11 +2,12 @@ import "./App.css";
 import React, { useEffect, useState } from "react";
 import useContentful from "./useContentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import PropTypes from "prop-types";
 
-function Store() {
+function Store({ selectedProducts, setSelectedProducts }) {
   const [products, setProducts] = useState([]);
   const { getProducts } = useContentful();
-  const isMobile = window.innerWidth <= 768;
+  const isMobile = window.innerWidth <= 1024;
   const productsPerPage = isMobile ? 1 : 2;
   const totalSlides = Math.ceil(products.length / productsPerPage);
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -16,6 +17,21 @@ function Store() {
       setProducts(response.items);
     });
   }, []);
+
+  const addToCart = (productData) => {
+    setSelectedProducts([...selectedProducts, productData]);
+  };
+  const handleSeeCart = () => {
+    const button = document.getElementById("menu-button");
+    const buttonMobile = document.getElementById("menu-button-mobile");
+
+    document.getElementById("buy-modal").close();
+    if (isMobile === false) {
+      button.click();
+    } else {
+      buttonMobile.click();
+    }
+  };
 
   return (
     <div id="tienda" className="bg-orange-100">
@@ -48,7 +64,9 @@ function Store() {
                     >
                       <figure>
                         <img
-                          className="h-[1024px] w-[576px]"
+                          className={`h-[1024px] w-${
+                            isMobile ? "full" : "1/2"
+                          }`}
                           src={`https:${productData.fields.imagenes.fields.file.url}`}
                           alt={productData.fields.nombre}
                         />
@@ -57,11 +75,15 @@ function Store() {
                         <h2 className="card-title">
                           {productData.fields.nombre}
                         </h2>
-                        <p className="min-[768px]:w-[890px]">
+                        <p>
                           {documentToReactComponents(
                             productData.fields.descripcion,
                           )}
                         </p>
+                        <h3 className="text-xl text-left">
+                          {" "}
+                          Precio: $ {productData.fields.precio}{" "}
+                        </h3>
                         <div className="card-actions justify-end">
                           <button
                             onClick={() =>
@@ -76,6 +98,7 @@ function Store() {
                           <button
                             onClick={() => {
                               document.getElementById("buy-modal").showModal();
+                              addToCart(productData);
                             }}
                             className="btn btn-primary"
                           >
@@ -107,7 +130,7 @@ function Store() {
                                       >
                                         <img
                                           src={`https:${modelo.fields.file.url}`}
-                                          className="h-[1024px] w-[576]"
+                                          className="h-[1024px] w-[576px]"
                                         />
                                         <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                                           <button
@@ -183,7 +206,7 @@ function Store() {
               </button>
             </div>
             <dialog id="buy-modal" className="modal modal-center ">
-              <div className="modal-box max-md:h-10">
+              <div className="modal-box max-md:h-50">
                 <form method="dialog">
                   <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
                     ✕
@@ -193,7 +216,10 @@ function Store() {
                   Producto agregado a carrito
                 </h3>
                 <br />
-                <button className="btn"> Ver Carrito </button>
+                <button onClick={handleSeeCart} className="btn">
+                  {" "}
+                  Ver Carrito{" "}
+                </button>
               </div>
             </dialog>
           </div>
@@ -202,5 +228,9 @@ function Store() {
     </div>
   );
 }
+Store.propTypes = {
+  setSelectedProducts: PropTypes.func.isRequired,
+  selectedProducts: PropTypes.array.isRequired,
+};
 
 export default Store;
