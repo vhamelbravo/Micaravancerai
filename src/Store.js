@@ -99,8 +99,17 @@ function Store({ selectedProducts, setSelectedProducts }) {
                             onClick={() => {
                               document.getElementById("buy-modal").showModal();
                               addToCart(productData);
+				    console.log(productData)
                             }}
-                            className="btn btn-primary"
+                            className="snipcart-add-item btn btn-primary"
+			  data-idem-id={`${productData.fields.slug}`}
+			  data-item-price={`${productData.fields.precio}`}
+			  data-item-description={`${documentToReactComponents(
+			  productData.fields.descripcion,
+			  )}`}
+			  data-item-image={`https:${productData.fields.imagenes.fields.file.url}`}
+			  data-item-name={`${productData.fields.nombre}`}
+			  data-item-url={`/${productData.fields.slug}`}
                           >
                             Comprar
                           </button>

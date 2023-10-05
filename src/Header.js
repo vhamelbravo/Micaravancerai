@@ -131,7 +131,9 @@ function Header({ selectedProducts, setSelectedProducts }) {
                         {" "}
                         Total: $ {formattedTotal}{" "}
                       </p>
-                      <button className="btn btn-primary">Comprar </button>
+                      <button className="btn btn-primary">
+                        Comprar{" "}
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -221,7 +223,9 @@ function Header({ selectedProducts, setSelectedProducts }) {
                       {" "}
                       Total: $ {formattedTotal}{" "}
                     </p>
-                    <button className="btn btn-primary">Comprar </button>
+                    <button className="snipcart-add-item btn btn-primary">
+                      Comprar{" "}
+                    </button>
                   </div>
                 </div>
               </div>
