@@ -64,12 +64,12 @@ function Store({ selectedProducts, setSelectedProducts }) {
                     >
                       <figure>
                         <img
-                          className="h-[1024px] w-3/4"
+                          className="h-[1024px] "
                           src={`https:${productData.fields.imagenes.fields.file.url}`}
                           alt={productData.fields.nombre}
                         />
                       </figure>
-                      <div className=" card-body">
+                      <div className="card-body">
                         <h2 className="card-title">
                           {productData.fields.nombre}
                         </h2>
