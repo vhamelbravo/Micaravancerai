@@ -64,9 +64,8 @@ function Store({ selectedProducts, setSelectedProducts }) {
                     >
                       <figure>
                         <img
-                          className={`h-[1024px] w-${
-                            isMobile ? "full" : "1/2"
-                          }`}
+                          className="h-[1024px] w-3/4" 
+                          
                           src={`https:${productData.fields.imagenes.fields.file.url}`}
                           alt={productData.fields.nombre}
                         />
