@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import logo from "./assets/logo-text.png";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 function Header({ selectedProducts, setSelectedProducts }) {
   const scrollToSection = (sectionId) => {
@@ -131,11 +132,10 @@ function Header({ selectedProducts, setSelectedProducts }) {
                         {" "}
                         Total: $ {formattedTotal}{" "}
                       </p>
-                      <button
-                        className="btn btn-primary"
-                      >
-                        Comprar{" "}
-                      </button>
+                      <Link to="/pago"
+		      className="btn btn-primary">
+                          Comprar{" "}
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -225,11 +225,10 @@ function Header({ selectedProducts, setSelectedProducts }) {
                       {" "}
                       Total: $ {formattedTotal}{" "}
                     </p>
-                    <button
-                      className="btn btn-primary"
-                    >
+                    <Link to="/pago"
+		     className="btn btn-primary">
                       Comprar{" "}
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>
