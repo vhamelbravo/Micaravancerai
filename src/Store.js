@@ -59,7 +59,7 @@ function Store({ selectedProducts, setSelectedProducts }) {
                     <div
                       className={`card w-${
                         isMobile ? "full" : "1/2"
-                      } max-sm:w-full bg-base-100 shadow-xl mx-1`}
+                      } max-sm:w-full max-w-full bg-base-100 shadow-xl mx-1`}
                       key={cardIndex}
                     >
                       <figure>
@@ -73,7 +73,7 @@ function Store({ selectedProducts, setSelectedProducts }) {
                         <h2 className="card-title">
                           {productData.fields.nombre}
                         </h2>
-                        <p>
+                        <p className="max-w-1/2">
                           {documentToReactComponents(
                             productData.fields.descripcion,
                           )}
