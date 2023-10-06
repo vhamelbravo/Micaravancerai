@@ -137,6 +137,7 @@ function Header({ selectedProducts, setSelectedProducts }) {
   data-item-description="High-quality replica of The Starry Night by the Dutch post-impressionist painter Vincent van Gogh."
   data-item-image="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1200px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg"
   data-item-name="The Starry Night"
+  data-item-url="/"
 		      >Comprar </button>
                     </div>
                   </div>
