@@ -136,7 +136,7 @@ function Header({ selectedProducts, setSelectedProducts }) {
 		      data-item-price={selectedProducts.map((product) => product.fields.precio.replace(/\./g, "").replace(",", "."))}
         data-item-image={selectedProducts.map((product) => `https:${product.fields.imagenes.fields.file.url}`).join(',')}
         data-item-name={selectedProducts.map((product) => product.fields.nombre).join(',')}
-        data-item-url="https://micaravancerai.cl"
+        data-item-url={`https://micaravancerai.cl/${product.fields.slug}`}}
 		      >Comprar </button>
                     </div>
                   </div>
