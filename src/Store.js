@@ -73,7 +73,7 @@ function Store({ selectedProducts, setSelectedProducts }) {
                         <h2 className="card-title">
                           {productData.fields.nombre}
                         </h2>
-                        <p className="max-w-1/2">
+                        <p className="w-full">
                           {documentToReactComponents(
                             productData.fields.descripcion,
                           )}
