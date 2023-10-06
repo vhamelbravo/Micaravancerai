@@ -71,7 +71,7 @@ function Store({ selectedProducts, setSelectedProducts }) {
                           alt={productData.fields.nombre}
                         />
                       </figure>
-                      <div className="card-body">
+                      <div className=" card-body">
                         <h2 className="card-title">
                           {productData.fields.nombre}
                         </h2>
@@ -136,7 +136,6 @@ function Store({ selectedProducts, setSelectedProducts }) {
                                       >
                                         <img
                                           src={`https:${modelo.fields.file.url}`}
-                                          className="h-[1024px] w-[576px]"
                                         />
                                         <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                                           <button
