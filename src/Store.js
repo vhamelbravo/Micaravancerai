@@ -73,7 +73,7 @@ function Store({ selectedProducts, setSelectedProducts }) {
                         <h2 className="card-title">
                           {productData.fields.nombre}
                         </h2>
-                        <p className="w-3/4">
+                        <p className="max-w-[500px]">
                           {documentToReactComponents(
                             productData.fields.descripcion,
                           )}
