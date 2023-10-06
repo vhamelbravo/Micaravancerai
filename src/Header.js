@@ -132,12 +132,11 @@ function Header({ selectedProducts, setSelectedProducts }) {
                         Total: $ {formattedTotal}{" "}
                       </p>
                       <button className="snipcart-add-item btn btn-primary"
-		      data-item-id="starry-night"
-  data-item-price="79.99"
-  data-item-description="High-quality replica of The Starry Night by the Dutch post-impressionist painter Vincent van Gogh."
-  data-item-image="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1200px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg"
-  data-item-name="The Starry Night"
-  data-item-url="/"
+		      data-item-id={selectedProducts.map((product) => product.fields.slug).join(',')}
+		      data-item-price={selectedProducts.map((product) => product.fields.precio.replace(/\./g, "").replace(",", "."))}
+        data-item-image={selectedProducts.map((product) => `https:${product.fields.imagenes.fields.file.url}`).join(',')}
+        data-item-name={selectedProducts.map((product) => product.fields.nombre).join(',')}
+        data-item-url="/"
 		      >Comprar </button>
                     </div>
                   </div>
