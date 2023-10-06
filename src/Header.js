@@ -131,13 +131,29 @@ function Header({ selectedProducts, setSelectedProducts }) {
                         {" "}
                         Total: $ {formattedTotal}{" "}
                       </p>
-                      <button className="snipcart-add-item btn btn-primary"
-		      data-item-id={selectedProducts.map((product) => product.fields.slug).join(',')}
-		      data-item-price={selectedProducts.map((product) => product.fields.precio.replace(/\./g, "").replace(",", "."))}
-        data-item-image={selectedProducts.map((product) => `https:${product.fields.imagenes.fields.file.url}`).join(',')}
-        data-item-name={selectedProducts.map((product) => product.fields.nombre).join(',')}
-        data-item-url="https://micaravancerai.cl"
-		      >Comprar </button>
+                      <button
+                        className="snipcart-add-item btn btn-primary"
+                        data-item-id={selectedProducts
+                          .map((product) => product.fields.slug)
+                          .join(",")}
+                        data-item-price={selectedProducts.map((product) =>
+                          product.fields.precio
+                            .replace(/\./g, "")
+                            .replace(",", "."),
+                        )}
+                        data-item-image={selectedProducts
+                          .map(
+                            (product) =>
+                              `https:${product.fields.imagenes.fields.file.url}`,
+                          )
+                          .join(",")}
+                        data-item-name={selectedProducts
+                          .map((product) => product.fields.nombre)
+                          .join(",")}
+                        data-item-url="https://micaravancerai.cl"
+                      >
+                        Comprar{" "}
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -227,7 +243,27 @@ function Header({ selectedProducts, setSelectedProducts }) {
                       {" "}
                       Total: $ {formattedTotal}{" "}
                     </p>
-                    <button className="snipcart-add-item btn btn-primary">
+                    <button
+                      className="snipcart-add-item btn btn-primary"
+                      data-item-id={selectedProducts
+                        .map((product) => product.fields.slug)
+                        .join(",")}
+                      data-item-price={selectedProducts.map((product) =>
+                        product.fields.precio
+                          .replace(/\./g, "")
+                          .replace(",", "."),
+                      )}
+                      data-item-image={selectedProducts
+                        .map(
+                          (product) =>
+                            `https:${product.fields.imagenes.fields.file.url}`,
+                        )
+                        .join(",")}
+                      data-item-name={selectedProducts
+                        .map((product) => product.fields.nombre)
+                        .join(",")}
+                      data-item-url="https://micaravancerai.cl"
+                    >
                       Comprar{" "}
                     </button>
                   </div>
