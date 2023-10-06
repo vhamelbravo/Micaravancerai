@@ -131,9 +131,13 @@ function Header({ selectedProducts, setSelectedProducts }) {
                         {" "}
                         Total: $ {formattedTotal}{" "}
                       </p>
-                      <button className="btn btn-primary">
-                        Comprar{" "}
-                      </button>
+                      <button className="snipcart-add-item btn btn-primary"
+		      data-item-id="starry-night"
+  data-item-price="79.99"
+  data-item-description="High-quality replica of The Starry Night by the Dutch post-impressionist painter Vincent van Gogh."
+  data-item-image="/assets/images/starry-night.jpg"
+  data-item-name="The Starry Night"
+		      >Comprar </button>
                     </div>
                   </div>
                 </div>
