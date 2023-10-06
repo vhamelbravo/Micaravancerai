@@ -69,7 +69,7 @@ function Store({ selectedProducts, setSelectedProducts }) {
                           alt={productData.fields.nombre}
                         />
                       </figure>
-                      <div className="card-body">
+                      <div className="card-body ">
                         <h2 className="card-title">
                           {productData.fields.nombre}
                         </h2>
