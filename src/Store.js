@@ -99,17 +99,14 @@ function Store({ selectedProducts, setSelectedProducts }) {
                             onClick={() => {
                               document.getElementById("buy-modal").showModal();
                               addToCart(productData);
-				    console.log(productData)
+				    console.log(productData.fields.slug)
                             }}
                             className="snipcart-add-item btn btn-primary"
-			  data-idem-id={`${productData.fields.slug}`}
-			  data-item-price={`${productData.fields.precio}`}
-			  data-item-description={`${documentToReactComponents(
-			  productData.fields.descripcion,
-			  )}`}
-			  data-item-image={`https:${productData.fields.imagenes.fields.file.url}`}
-			  data-item-name={`${productData.fields.nombre}`}
-			  data-item-url={`/${productData.fields.slug}`}
+			  data-item-id="starry-night"
+  data-item-price="79.99"
+  data-item-description="High-quality replica of The Starry Night by the Dutch post-impressionist painter Vincent van Gogh."
+  data-item-image="/assets/images/starry-night.jpg"
+  data-item-name="The Starry Night"
                           >
                             Comprar
                           </button>
